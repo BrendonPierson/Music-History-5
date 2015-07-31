@@ -1,0 +1,16 @@
+{
+  "songs": [
+    {
+      "name": "Thunder Road",
+      "artist": "Bruce Springsteen",
+      "album": "Born to Run",
+      "genre": "Rock"
+    },
+    {
+      "name": "Lonesome",
+      "artist": "Dr. Dog",
+      "album": "Be the Void",
+      "genre": "Rock"
+    }
+  ]
+}
