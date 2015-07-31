@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <title>Brendon Pierson's Music App</title>
+</head>
+<body>
+	<div id="nav_bar">
+		<ul>
+			<a href="#"><li>View Music</li></a>
+			<a href="#"><li>Add Music</li></a>
+			<a href="#"><li class="noBorder">Profile</li></a>
+		</ul>
+	</div>
+	<div id="main-wrapper">
+		<div id="controls">
+			<form>
+	            <label for="songLength">Song Length:</label>
+	            <input type="range" name="songLength">
+	            <label for="album">Album:</label>
+	            <input name="album" list="album" placeholder="options">
+	            <datalist id="album">
+	              <option value="Be the Void">
+	                <option value="Doggystyle">
+	                  <option value="Rocket Man">
+	                    <option value="Locked Down">
+	            </datalist>
+	            <label for="artist">Artist:</label>
+	            <input name="artist" list="artist" placeholder="options">
+	            <datalist id="artist">
+	              <option value="Dr. Dog">
+	                <option value="Snoop Dog">
+	                  <option value="Elton John">
+	                    <option value="Dr. John">
+	            </datalist>
+			    <div id="genre">
+			        <h4>Genre:</h4>
+			        <div class="floatLeft">
+			          	<div class="checkBoxDiv">
+			               <input type="checkbox" name="rock" value="rock"> 
+			               <label for="rock">Rock</label>
+			            </div>        
+			            <div class="checkBoxDiv">
+			              	<input type="checkbox" name="classical" value="classical">
+			                <label for="classical">Classical</label>
+			            </div>
+			            <div class="checkBoxDiv">
+			                <input type="checkbox" name="pop" value="pop">
+			                <label for="pop">Pop</label>
+			            </div>
+			        </div>
+			        <div class="floatRight">
+			            <div class="checkBoxDiv">
+			                <input type="checkbox" name="jazz" value="jazz">
+			                <label for="jazz">Jazz</label>
+			            </div>
+			            <div class="checkBoxDiv">
+			                <input type="checkbox" name="blues" value="blues">
+			                <label for="blues">Blues</label>
+			            </div>
+			            <div class="checkBoxDiv">
+			                <input type="checkbox" name="hiphop" value="hiphop">
+			                <label for="hiphop">Hip Hop</label>
+			          	</div>
+			        </div>
+		        </div>
+		        <div id="clear">
+		        </div>
+		        <button type="submit" value="filter">Filter</button>
+		        </form>
+		</div>
+		<div id="info">
+			<button type="button" id="addMoreSongs" value="addMoreSongs">Add More Songs</button>
+		</div>
+	</div>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="scripts.js"></script>
+</body>
