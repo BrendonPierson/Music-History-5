@@ -4,29 +4,11 @@
 
 define (function () {
   var songs = [];
-
-  // var callAjax = function(){
-  //   $.ajax({
-  //       url: "songs.json"
-  //   }).done(function(data){
-  //       for (var i = 0; i < data.songs.length; i++){
-  //         songs[songs.length] = data.songs[i];     
-  //       }
-  //   });
-  // }();
-   
-
-
-
-
-
-
-
+  
   return {
     ajaxCall: function(){
       $.ajax({
-        url: "songs.json",
-        async: false
+        url: "songs.json"
       }).done(function(data){
         for (var i = 0; i < data.songs.length; i++){
           songs[songs.length] = data.songs[i];     
