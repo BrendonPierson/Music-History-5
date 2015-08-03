@@ -2,21 +2,13 @@
 //with songs in it. This module should return the array of songs.
 
 define (function () {
-  var songs = [];
-
   return {
-    ajaxCall: function(){
+    getMoreSongs: function(callback){
       $.ajax({
-        url: "songs2.json",
-        async: false
+        url: "songs2.json"
         }).done(function(data){
-          for (var i = 0; i < data.songs.length; i++){
-            songs[songs.length] = data.songs[i];     
-          }
+          callback.call(this, data.songs)
         });
-    },
-    getSongs: function(){
-      return songs;
     }
   };
 });

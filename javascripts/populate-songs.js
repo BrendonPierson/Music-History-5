@@ -2,21 +2,25 @@
 //to your first JSON file with songs in it. 
 //This module should return the array of songs.
 
+
+//callbacks 
+//callback.call(this,data)
+//someOtherFunction.call(this, data)
+
+// $.ajax({
+//         url: "./javascripts/more-songs.json"
+//       }).done(function(data) {
+//         callback.call(this, data.songs);
+//       });
+
 define (function () {
-  var songs = [];
-  
   return {
-    ajaxCall: function(){
+    getSongs: function(callback){
       $.ajax({
         url: "songs.json"
       }).done(function(data){
-        for (var i = 0; i < data.songs.length; i++){
-          songs[songs.length] = data.songs[i];     
-        }
+        callback.call(this, data.songs);
       });
-    },
-    getSongs: function(){
-      return songs;
     }
   };
 });
