@@ -107,11 +107,11 @@ button {
 	margin: 0 2% 0 2%;
 }
 
-.song p:nth-of-type(even) {
+/*.song p:nth-of-type(even) {
 	text-align: center;
 	width: 33%;
 	margin: 0 auto;
-}
+}*/
 
 button[value="delete"] {
 	width: 20%;

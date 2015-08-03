@@ -3,7 +3,7 @@
 
 define (function () {
   return {
-    getMoreSongs: function(callback){
+    getSongs: function(callback){
       $.ajax({
         url: "songs2.json"
         }).done(function(data){
