@@ -30,6 +30,6 @@ requirejs(
       console.log("clicked delete");
       $(this).parent().parent().parent().remove();
     });
-
   }
+
 );

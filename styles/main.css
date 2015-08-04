@@ -7,30 +7,36 @@ body {
 
 html, body {
   width: 100%;
-  height: 100%;
   background: rgba(0, 0, 0, 0.2);
-  background-image: url("https://static.pexels.com/photos/1539/vintage-technology-music-old-large.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
   font-weight: 700;
   color: #DDD;
-  letter-spacing: .1em; }
+  letter-spacing: .2em; }
 
-body {
-  padding: 2.5% 5%; }
+li:hover {
+  background: rgba(255, 255, 255, 0.1); }
+
+#nav {
+  background: rgba(0, 0, 0, 0.5); }
+
+#navContainer {
+  background: rgba(0, 0, 0, 0.7); }
+
+ul li a {
+  color: #FFF; }
 
 #main-wrapper {
   margin: 2.5% 0 0 0; }
 
 #controls {
-  border: 1px solid #000;
+  border: 1px solid #DDD;
   border-radius: 10px;
-  padding: 2% 4%;
+  padding: 2% 2%;
   -webkit-box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.75);
   box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.75);
   background: rgba(0, 0, 0, 0.9);
-  height: 100%; }
+  height: 100%;
+  margin-bottom: 5%; }
   #controls button:hover {
     background: rgba(255, 255, 255, 0.1); }
 
@@ -41,7 +47,8 @@ body {
   text-shadow: 0 2px 2px #000; }
 
 #info {
-  border: 1px solid #000;
+  text-align: center;
+  border: 1px solid #DDD;
   border-radius: 10px;
   padding: 2% 4%;
   -webkit-box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.75);
@@ -50,5 +57,21 @@ body {
   background: rgba(0, 0, 0, 0.9); }
   #info button:hover {
     background: rgba(255, 255, 255, 0.1); }
+
+@media (min-width: 768px) {
+  body {
+    background-image: url("https://static.pexels.com/photos/1539/vintage-technology-music-old-large.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2.5% 5%; }
+
+  #info, #controls {
+    border: 1px solid #000; }
+
+  #info {
+    text-align: left; }
+
+  button {
+    opacity: .7; } }
 
 /*# sourceMappingURL=main.css.map */
