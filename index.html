@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="stylesheet" type="text/css" href="styles/normalize.css">
 	<link rel ="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
     <title>Brendon Pierson's Music App</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 	<div id="main-wrapper" class="row">
-		<div id="controls" class="col-md-3">
+		<div id="controls" class="col-sm-3">
 			<form>
 				<div class="form-group">
 	        <label for="songLength">Song Length:</label>
@@ -61,60 +61,60 @@
 					</select>
 				</div>
 
-
     		<div id="genre" class="form-group">
 	        <h4>Genre:</h4>
+	        <div class="row">
 
-	        <div class="checkbox">
-	  				<label>
-					    <input type="checkbox" value="rock">
-					    Rock
-					  </label>
-					</div>
+	        	<div class="col-sm-6">
+			        <div class="checkbox">
+			  				<label>
+							    <input type="checkbox" value="rock">
+							    Rock
+							  </label>
+							</div>
+							<div class="checkbox">
+			  				<label>
+							    <input type="checkbox" value="classical">
+							    Classical
+							  </label>
+							</div>
+							<div class="checkbox">
+			  				<label>
+							    <input type="checkbox" value="pop">
+							    Pop
+							  </label>
+							</div>
+						</div>
+					
 
-					<div class="checkbox">
-	  				<label>
-					    <input type="checkbox" value="classical">
-					    Classical
-					  </label>
-					</div>
+						<div class="col-sm-6">
+							<div class="checkbox">
+			  				<label>
+							    <input type="checkbox" value="Jazz">
+							    Jazz
+							  </label>
+							</div>
+							<div class="checkbox">
+			  				<label>
+							    <input type="checkbox" value="blues">
+							    Blues
+							  </label>
+							</div>
+							<div class="checkbox">
+			  				<label>
+							    <input type="checkbox" value="hiphop">
+							    Hip Hop
+							  </label>
+							</div>
+						</div>
 
-					<div class="checkbox">
-	  				<label>
-					    <input type="checkbox" value="pop">
-					    Pop
-					  </label>
 					</div>
-
-					<div class="checkbox">
-	  				<label>
-					    <input type="checkbox" value="Jazz">
-					    Jazz
-					  </label>
-					</div>
-
-					<div class="checkbox">
-	  				<label>
-					    <input type="checkbox" value="blues">
-					    Blues
-					  </label>
-					</div>
-
-					<div class="checkbox">
-	  				<label>
-					    <input type="checkbox" value="hiphop">
-					    Hip Hop
-					  </label>
-					</div>
-        
-          	
-      	
       	</div>
-      	<button type="button" value="filter">Filter</button>
+      	<button type="button" value="filter" class="btn btn-primary btn-lg">Filter</button>
       </form>
 		</div>
-		<div id="info" class="col-md-8 col-md-offset-1">
-			<button type="button" id="addMoreSongs" value="addMoreSongs">Add More Songs</button>
+		<div id="info" class="col-sm-8 col-sm-offset-1">
+			<button type="button" id="addMoreSongs" value="addMoreSongs" class="btn btn-primary">Add More Songs</button>
 		</div>
 	</div>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>

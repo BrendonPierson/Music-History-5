@@ -1,0 +1,55 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font-size: 1.5em;
+}
+
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0, .2);
+}
+
+body {
+  padding: 2.5% 5%;
+}
+ 
+// nav
+
+.song:hover {
+  background: rgba(0,0,0, .1);
+  border-radius: 20px;
+  padding: 1%;
+}
+
+// main wrapper row
+#main-wrapper {
+    margin: 5% 0 0 0;
+}
+
+
+//controls
+#controls {
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 2% 4%;
+    -webkit-box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
+}
+
+
+//Song info
+
+#info {
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 2% 4%;
+    -webkit-box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
+}
+
