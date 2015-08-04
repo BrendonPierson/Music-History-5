@@ -1,16 +1,35 @@
-$font-stack:    Helvetica, sans-serif;
+$font-stack:'Oswald', sans-serif;
 $primary-color: #333;
+$controlsBackground: #C3898C;
+$infoBackground: #798691;
 
-body {
-  font-size: 1.5em;
+$borderRadius: 10px;
+
+@mixin boxShadow($x, $y, $blur, $spread, $color){
+  -webkit-box-shadow: $x $y $blur $spread $color;
+  -moz-box-shadow: $x $y $blur $spread $color;
+  box-shadow: $x $y $blur $spread $color;
 }
 
 
-
-html, body {
-  height: 100%;
-  width: 100%;
+body {
+  font-size: 1.5em;
+  font-family: $font-stack;
+}
+:root {
   background: rgba(0,0,0, .2);
+}
+
+
+html, body{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, .2);
+  background-image: url('https://static.pexels.com/photos/1539/vintage-technology-music-old-large.jpg');
+  background-size: cover;
+  font-weight: 700;
+  color: #DDD;
+  letter-spacing: .1em;
 }
 
 body {
@@ -19,37 +38,38 @@ body {
  
 // nav
 
-.song:hover {
-  background: rgba(0,0,0, .1);
-  border-radius: 20px;
-  padding: 1%;
-}
+
 
 // main wrapper row
 #main-wrapper {
-    margin: 5% 0 0 0;
+    margin: 2.5% 0 0 0;
 }
 
 
 //controls
 #controls {
-    border: 1px solid #000;
-    border-radius: 20px;
-    padding: 2% 4%;
-    -webkit-box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
-    -moz-box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
-    box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
+  border: 1px solid #000;
+  border-radius: $borderRadius;
+  padding: 2% 4%;
+  @include boxShadow(5px, 5px, 20px, 10px, rgba(0,0,0,0.75));
+  background: rgba(0,0,0, .9);
+  height: 100%;
 }
 
 
 //Song info
 
+.song:hover {
+  background: rgba(255,255,255, .1);
+  border-radius: 20px;
+  padding: 1%;
+}
+
 #info {
-    border: 1px solid #000;
-    border-radius: 20px;
-    padding: 2% 4%;
-    -webkit-box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
-    -moz-box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
-    box-shadow: 5px 5px 83px 10px rgba(0,0,0,0.75);
+  border: 1px solid #000;
+  border-radius: $borderRadius;
+  padding: 2% 4%;
+  @include boxShadow(5px, 5px, 20px, 10px, rgba(0,0,0,0.75));
+  background: rgba(0,0,0, .9);
 }
 
