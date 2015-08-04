@@ -21,8 +21,8 @@ li:hover {
 #navContainer {
   background: rgba(0, 0, 0, 0.7); }
 
-ul li a {
-  color: #FFF; }
+.navbar-nav li:hover {
+  background: rgba(255, 255, 255, 0.1); }
 
 #main-wrapper {
   margin: 2.5% 0 0 0; }
@@ -45,6 +45,9 @@ ul li a {
   border-radius: 20px;
   padding: 1%;
   text-shadow: 0 2px 2px #000; }
+
+.song {
+  padding: 0 0 2% 0; }
 
 #info {
   text-align: center;
