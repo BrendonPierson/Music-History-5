@@ -27,6 +27,7 @@ html, body{
   background: rgba(0,0,0, .2);
   background-image: url('https://static.pexels.com/photos/1539/vintage-technology-music-old-large.jpg');
   background-size: cover;
+  background-repeat: no-repeat;  
   font-weight: 700;
   color: #DDD;
   letter-spacing: .1em;
@@ -54,6 +55,9 @@ body {
   @include boxShadow(5px, 5px, 20px, 10px, rgba(0,0,0,0.75));
   background: rgba(0,0,0, .9);
   height: 100%;
+  button:hover {
+    background: rgba(255,255,255, .1);
+  }
 }
 
 
@@ -63,6 +67,7 @@ body {
   background: rgba(255,255,255, .1);
   border-radius: 20px;
   padding: 1%;
+  text-shadow: 0 2px 2px #000;
 }
 
 #info {
@@ -71,5 +76,8 @@ body {
   padding: 2% 4%;
   @include boxShadow(5px, 5px, 20px, 10px, rgba(0,0,0,0.75));
   background: rgba(0,0,0, .9);
+  button:hover {
+    background: rgba(255,255,255, .1)
+  }
 }
 

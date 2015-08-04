@@ -14,7 +14,7 @@ requirejs(
         infoHTML +=   "<div class='row song'><h3>" + songs[i].name + "</h3>" + 
                       "<div class='row'><p class='col-sm-4'>Artist: " + songs[i].artist + "</p>" +
                       "<p class='col-sm-4'>On the album: " + songs[i].album + "</p>" + 
-                      '<div class="col-sm-4"><button type="button" value="delete" class="btn btn-danger btn-xs">Delete Song</button></div></div></div>';
+                      '<div class="col-sm-4"><button type="button" value="delete" class="btn btn-danger btn-sm">Delete Song</button></div></div></div>';
       } 
       dom.songsDiv.prepend(infoHTML);
     }
