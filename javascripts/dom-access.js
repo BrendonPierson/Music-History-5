@@ -2,6 +2,7 @@
 //in your HTML that will contain the song list.
 define (["jquery"], function($){
   return {
-    songsDiv: $("#info")
+    songsDiv: $("#info"),
+    moreSongs: $("#addMoreSongs")
   };
 });

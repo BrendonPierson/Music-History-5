@@ -2,13 +2,13 @@
 //to your first JSON file with songs in it. 
 //This module should return the array of songs.
 
-define (["jquery"], function ($) {
+define (["jquery"], function($) {
   return {
     getSongs: function(callback){
       $.ajax({
         url: "songs.json"
       }).done(function(data){
-        callback.call(this, data.songs);
+        callback.call(this, data);
       });
     }
   };
