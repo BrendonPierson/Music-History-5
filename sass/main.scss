@@ -69,6 +69,10 @@ li:hover {
 
 //Song info
 
+.hidden {
+  display: none;
+}
+
 .song:hover {
   background: rgba(255,255,255, .1);
   border-radius: 20px;
