@@ -16,10 +16,17 @@ requirejs(
 
     //function for turning json file into html
     function putSongsInHTML(data) {
-      require(['hbs!../templates/songs'],function(songTemplate){
-        dom.songsDiv.hide("fast").prepend(songTemplate(data)).slideDown("slow");
+      
+
+      require(['hbs!../templates/songs', 'hbs!../templates/album', 'hbs!../templates/artist'],function(songTemplate, albumTemplate, artistTemplate){
+        dom.songsDiv.hide().prepend(songTemplate(data)).slideDown("slow");
+        $("select[name='album']:last-child").append(albumTemplate(data));
+        $("select[name='artist']:last-child").append(artistTemplate(data));
       });
-    }
+      
+
+    } //end of the json to html function
+
     //populate songs list
     songs1.getSongs(putSongsInHTML);
 
