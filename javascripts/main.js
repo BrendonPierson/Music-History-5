@@ -1,6 +1,18 @@
+requirejs.config({
+  baseUrl: './javascripts',
+  paths: {
+    'jquery': '../bower_components/jquery/dist/jquery.min',
+    'hbs': '../bower_components/require-handlebars-plugin/hbs',
+    'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min'
+  },
+  shim: {
+    'bootstrap': ['jquery']
+  }
+});
+
 requirejs(
-  ["dom-access", "populate-songs", "get-more-songs"], 
-  function(dom, songs1, songs2) {
+  ["jquery", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs"], 
+  function($, Handlebars, bootstrap, dom, songs1, songs2) {
 
     var songs = [];
     var infoHTML = '';
@@ -48,7 +60,6 @@ requirejs(
       console.log("clicked delete");
       $(this).parent().parent().parent().remove();
     });
-
 
 
   }

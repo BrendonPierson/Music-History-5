@@ -1,7 +1,7 @@
 //The get-more-songs file should contain the AJAX call to your second JSON file 
 //with songs in it. This module should return the array of songs.
 
-define (function () {
+define (["jquery"], function ($) {
   return {
     getSongs: function(callback){
       $.ajax({
