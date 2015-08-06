@@ -17,9 +17,9 @@ requirejs(
     //function for turning json file into html
     function putSongsInHTML(data) {
       
-
+      //populate songs div and form artist/album drop downs
       require(['hbs!../templates/songs', 'hbs!../templates/album', 'hbs!../templates/artist'],function(songTemplate, albumTemplate, artistTemplate){
-        dom.songsDiv.hide().prepend(songTemplate(data)).slideDown("slow");
+        dom.songsDiv.hide().html(songTemplate(data)).slideDown("slow");
         $("select[name='album']:last-child").append(albumTemplate(data));
         $("select[name='artist']:last-child").append(artistTemplate(data));
       });
@@ -31,10 +31,30 @@ requirejs(
     songs1.getSongs(putSongsInHTML);
 
     //more sounds button click event handler, hides button when songs are added
-    dom.moreSongs.click(function(){
-      songs2.getSongs(putSongsInHTML);
-      $(this).hide();
-    });
+    // dom.moreSongs.click(function(){
+    //   songs2.getSongs(putSongsInHTML);
+    //   $(this).hide();
+    // });
+
+  //Add song call
+
+$('[value="addSong"]').click(function(){
+  var newSong = {
+    "name": $('[name="songName"').val(),
+    "album": $('[name="album"').val(),
+    "artist": $('[name="artist"').val()
+  };
+  console.log(newSong);
+  console.log("add button clicked");
+  $.ajax({
+    url: "https://nssapp.firebaseio.com/songs.json",
+    method: "POST",
+    data: JSON.stringify(newSong)
+  }).done(function(newType){
+    console.log("newType:", newType);
+  }).done(songs1.getSongs(putSongsInHTML));
+});
+   
 
     //handle delete button click
     $(dom.songsDiv).on('click', "button[value='delete']", function(){

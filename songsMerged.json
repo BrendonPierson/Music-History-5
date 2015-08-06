@@ -1,0 +1,40 @@
+{
+  "songs": [
+    {
+      "name": "Legs",
+      "artist": "zzTop",
+      "album": "Eliminator",
+      "genre": "Rock"
+    },
+    {
+      "name": "The Logical Song",
+      "artist": "Supertramp",
+      "album": "Breakfast in America",
+      "genre": "Rock"
+    },
+    {
+      "name": "Another Brick in the Wall",
+      "artist": "Pink Floyd",
+      "album": "The Wall",
+      "genre": "Rock"
+    },
+    {
+      "name": "Welcome to the Jungle",
+      "artist": "Guns and Roses",
+      "album": "Appetite for Destruction",
+      "genre": "Rock"
+    },
+    {
+      "name": "Thunder Road",
+      "artist": "Bruce Springsteen",
+      "album": "Born to Run",
+      "genre": "Rock"
+    },
+    {
+      "name": "Lonesome",
+      "artist": "Dr. Dog",
+      "album": "Be the Void",
+      "genre": "Rock"
+    }
+  ]
+}

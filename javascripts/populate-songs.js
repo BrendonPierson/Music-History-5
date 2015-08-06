@@ -6,7 +6,7 @@ define (["jquery"], function($) {
   return {
     getSongs: function(callback){
       $.ajax({
-        url: "songs.json"
+        url: "https://nssapp.firebaseio.com/.json"
       }).done(function(data){
         callback.call(this, data);
       });

@@ -60,10 +60,14 @@ li:hover {
   @include boxShadow(5px, 5px, 20px, 10px, rgba(0,0,0,0.75));
   background: rgba(0,0,0, .9);
   height: 100%;
+  margin-bottom: 5%;
   button:hover {
     background: rgba(255,255,255, .1);
   }
-  margin-bottom: 5%;
+  input {
+    color: #111;
+  }
+  
 }
 #controlButtons {
   text-align: center;

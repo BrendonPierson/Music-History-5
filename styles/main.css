@@ -39,6 +39,8 @@ li:hover {
   margin-bottom: 5%; }
   #controls button:hover {
     background: rgba(255, 255, 255, 0.1); }
+  #controls input {
+    color: #111; }
 
 #controlButtons {
   text-align: center;
