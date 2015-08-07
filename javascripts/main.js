@@ -15,13 +15,11 @@ requirejs(
   function($, Handlebars, bootstrap, dom, songs1, songs2) {
     
     //create object to hold data from ajax call
-    var songsObj; //don't edit
     var songsData; //can edit
 
-    //function for turning json file into html
+    //function for turning json file into html through handlebars template
     function putSongsInHTML(data) {
-      songsObj = data;
-      songsData = songsObj;
+      songsData = data;
       //populate songs div and form artist/album drop downs
       require(['hbs!../templates/songs', 'hbs!../templates/album', 'hbs!../templates/artist'],function(songTemplate, albumTemplate, artistTemplate){
         dom.songsDiv.hide().html(songTemplate(data)).slideDown("slow");
@@ -38,10 +36,14 @@ requirejs(
       });
     }
 
+    //function to just return the data
+    function returnAjaxData(data) {
+      songsData = data;
+    }
 
-    //populate songs list
+    //populate songs list on page load
     songs1.getSongs(putSongsInHTML);
-
+    
 
     //Add song Function///
     $('[value="addSong"]').click(function(){
@@ -59,41 +61,49 @@ requirejs(
 
     //Filter button Function
     $('[value="filter"]').click(function(){
-      //collect filter values 
+      //variables to collect filter values 
       var album = $('[name="album"').val();
       var artist = $('[name="artist"').val();
-      
       var $genres = $("input:checked");
       var genres = [];
 
-      //create array of genres
+      songs1.getSongs(returnAjaxData);
+
+      //create array of genres from jQuery selector
       for (var i = 0; i < $genres.length; i++){
         genres[genres.length] = $($genres[i]).val();
       }
-      console.log("Genres checked: ", genres);
 
-
+      //loop that checks each song for filter criteria
       for (var obj in songsData.songs) {
         if (songsData.songs[obj].album !== album && songsData.songs[obj].artist !== artist && genres.indexOf(songsData.songs[obj].genre) === -1){
           delete songsData.songs[obj];
-        } //else if (genres.length < 0 && genres.indexOf(songsData.songs[obj].genre) === -1) {
-          //delete songsData.songs[obj];
-        }
-      
+        } 
+      }
       console.log("songsData: ", songsData);
-      console.log("songsObj", songsObj);
       filterSongsInHTML(songsData);
     });
 
    
 
-    //handle delete button click
+    //delete from firebase
     $(dom.songsDiv).on('click', "button[value='delete']", function(){
-      console.log("clicked delete");
       $(this).parent().parent().parent().remove();
+      console.log("clicked delete");
+      var obj = $(this).parent().parent().parent().attr('id');
+      console.log(obj);
+      $.ajax({
+        url: "https://nssapp.firebaseio.com/songs/" + obj + ".json",
+        type: 'DELETE'
+      });
+      
     });
+    
 
-    //Fix controls when window is > 767///////////////////
+
+
+
+    //Fix controls when window is > 767px
     if($(window).width() > 767){
       $("#controls").addClass("affix");
       $("#info").removeClass("col-sm-offset-1").addClass("col-sm-offset-4");
