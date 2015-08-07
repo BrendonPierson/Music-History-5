@@ -50,8 +50,13 @@ requirejs(
       var newSong = {
         "name": $('[name="songName"').val(),
         "album": $('[name="album"').val(),
-        "artist": $('[name="artist"').val()
+        "artist": $('[name="artist"').val(),
+        "genre": $('[name="genre"').val()
       };
+      $('[name="songName"').val('');
+      $('[name="album"').val('');
+      $('[name="artist"').val('');
+      $('[name="genre"').val('');
       $.ajax({
         url: "https://nssapp.firebaseio.com/songs.json",
         method: "POST",
