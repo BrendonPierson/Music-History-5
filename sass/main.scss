@@ -61,12 +61,24 @@ li:hover {
   background: rgba(0,0,0, .9);
   height: 100%;
   margin-bottom: 5%;
+  h3 {
+    text-align: center;
+    padding: 0 0 10% 0;
+    margin: 0 0 10% 0;
+    border-bottom: 1px solid #FFF;
+  }
   button:hover {
     background: rgba(255,255,255, .1);
   }
-  input {
-    color: #111;
+  #addNewSong{
+    input {
+      background: rgba(255,255,255, .1);
+      margin: 0 0 5% 0;
+      padding: 1%;
+      border-radius: 10px;
+    }  
   }
+  
   
 }
 #controlButtons {
