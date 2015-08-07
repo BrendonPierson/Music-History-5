@@ -15,17 +15,13 @@ requirejs(
   function($, Handlebars, bootstrap, dom, songs1, songs2) {
     
     //create object to hold data from ajax call
-    var songsObj;
-    var songsData;
-
+    var songsObj; //don't edit
+    var songsData; //can edit
 
     //function for turning json file into html
     function putSongsInHTML(data) {
-      songsObj = data.songs;
-      songsData = data;
-      // console.log("songs Data", songsData);
-      // songsObj = data;
-      // console.log(data);
+      songsObj = data;
+      songsData = songsObj;
       //populate songs div and form artist/album drop downs
       require(['hbs!../templates/songs', 'hbs!../templates/album', 'hbs!../templates/artist'],function(songTemplate, albumTemplate, artistTemplate){
         dom.songsDiv.hide().html(songTemplate(data)).slideDown("slow");
@@ -34,32 +30,18 @@ requirejs(
       });
     } //end of the json to html function
 
-
-
-
-
+    //function for filtering songs and putting them in the DOM
     function filterSongsInHTML(data) {
       console.log("filterSongsIntHTML function running on this data: ", data);
-      require(['hbs!../templates/filteredSongs'],function(songTemplate){
+      require(['hbs!../templates/songs'],function(songTemplate){
         dom.songsDiv.hide().html(songTemplate(data)).slideDown("slow");
       });
     }
 
 
-
-
-
-
-
-
     //populate songs list
     songs1.getSongs(putSongsInHTML);
 
-    //more sounds button click event handler, hides button when songs are added
-    // dom.moreSongs.click(function(){
-    //   songs2.getSongs(putSongsInHTML);
-    //   $(this).hide();
-    // });
 
     //Add song Function///
     $('[value="addSong"]').click(function(){
@@ -80,33 +62,26 @@ requirejs(
       //collect filter values 
       var album = $('[name="album"').val();
       var artist = $('[name="artist"').val();
-      var filteredSongs = [];
+      
+      var $genres = $("input:checked");
+      var genres = [];
 
-      // console.log("songs.length", songs[0]);
+      //create array of genres
+      for (var i = 0; i < $genres.length; i++){
+        genres[genres.length] = $($genres[i]).val();
+      }
+      console.log("Genres checked: ", genres);
 
-
-      // for(var song in songsObj) {
-      //   // console.log("for loop album and artist", songs[song].album, songs[song].artist);
-      //   if (songsObj[song].album !== album && songsObj[song].artist !== artist) {
-      //     // filteredSongs.songs = songsObj[song];
-      //     delete songsObj[song];
-      //   }
-      // }
 
       for (var obj in songsData.songs) {
-        // console.log("song obj: ", songsData.songs[obj]);
-        if (songsData.songs[obj].album !== album && songsData.songs[obj].artist !== artist){
+        if (songsData.songs[obj].album !== album && songsData.songs[obj].artist !== artist && genres.indexOf(songsData.songs[obj].genre) === -1){
           delete songsData.songs[obj];
+        } //else if (genres.length < 0 && genres.indexOf(songsData.songs[obj].genre) === -1) {
+          //delete songsData.songs[obj];
         }
-      }
+      
       console.log("songsData: ", songsData);
-      // console.log("songs: ",songs);
-      // console.log("album filter: ", album);
-      // console.log("artist filter: ", artist);
-      // console.log("new songs obj: ", filteredSongs);
-      // console.log("filtered songObj: ", songsObj);
-
-
+      console.log("songsObj", songsObj);
       filterSongsInHTML(songsData);
     });
 
