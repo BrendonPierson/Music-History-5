@@ -2,80 +2,130 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="normalize.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="styles/normalize.css">
+	<link rel ="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+	<script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
     <title>Brendon Pierson's Music App</title>
 </head>
 <body>
-	<div id="nav_bar">
-		<ul>
-			<a href="#"><li>View Music</li></a>
-			<a href="#"><li>Add Music</li></a>
-			<a href="#"><li class="noBorder">Profile</li></a>
-		</ul>
-	</div>
-	<div id="main-wrapper">
-		<div id="controls">
-			<form>
-	            <label for="songLength">Song Length:</label>
-	            <input type="range" name="songLength">
-	            <label for="album">Album:</label>
-	            <input name="album" list="album" placeholder="options">
-	            <datalist id="album">
-	              <option value="Be the Void">
-	                <option value="Doggystyle">
-	                  <option value="Rocket Man">
-	                    <option value="Locked Down">
-	            </datalist>
-	            <label for="artist">Artist:</label>
-	            <input name="artist" list="artist" placeholder="options">
-	            <datalist id="artist">
-	              <option value="Dr. Dog">
-	                <option value="Snoop Dog">
-	                  <option value="Elton John">
-	                    <option value="Dr. John">
-	            </datalist>
-			    <div id="genre">
-			        <h4>Genre:</h4>
-			        <div class="floatLeft">
-			          	<div class="checkBoxDiv">
-			               <input type="checkbox" name="rock" value="rock"> 
-			               <label for="rock">Rock</label>
-			            </div>        
-			            <div class="checkBoxDiv">
-			              	<input type="checkbox" name="classical" value="classical">
-			                <label for="classical">Classical</label>
-			            </div>
-			            <div class="checkBoxDiv">
-			                <input type="checkbox" name="pop" value="pop">
-			                <label for="pop">Pop</label>
-			            </div>
-			        </div>
-			        <div class="floatRight">
-			            <div class="checkBoxDiv">
-			                <input type="checkbox" name="jazz" value="jazz">
-			                <label for="jazz">Jazz</label>
-			            </div>
-			            <div class="checkBoxDiv">
-			                <input type="checkbox" name="blues" value="blues">
-			                <label for="blues">Blues</label>
-			            </div>
-			            <div class="checkBoxDiv">
-			                <input type="checkbox" name="hiphop" value="hiphop">
-			                <label for="hiphop">Hip Hop</label>
-			          	</div>
-			        </div>
-		        </div>
-		        <div id="clear">
-		        </div>
-		        <button type="submit" value="filter">Filter</button>
-		        </form>
+	<nav id="nav" class="navbar transparent navbar-inverse">
+  	<div id="navContainer" class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-music"></span></a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="index.html">View Music<span class="sr-only"></span></a></li>
+	        <li><a href="addSongs.html">Add Music</a></li>
+	        <li><a href="#">Profile</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div class="container">
+		<div id="main-wrapper" class="row">
+			<div id="controls" class="col-sm-3">
+				<form>
+					<!-- <div class="form-group">
+		        <label for="songLength">Song Length:</label>
+		        <input type="range" name="songLength">
+		      </div> -->
+
+		      <div class="form-group">
+			      <label for="album">Album</label>
+			      <select class="form-control" name="album">
+		      		<option value="default">Pick an Album</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+			      <label for="artist">Aritst</label>
+						<select class="form-control" name="artist">
+		      		<option value="default">Pick an Artist</option>
+						</select>
+					</div>
+
+	    		<div id="genre" class="form-group">
+		        <h4>Genre:</h4>
+		        <div class="row">
+
+		        	<div class="col-md-6">
+				        <div class="checkbox">
+				  				<label>
+								    <input type="checkbox" value="Rock">
+								    Rock
+								  </label>
+								</div>
+								<div class="checkbox">
+				  				<label>
+								    <input type="checkbox" value="Classic Rock">
+								    Classic Rock
+								  </label>
+								</div>
+								<div class="checkbox">
+				  				<label>
+								    <input type="checkbox" value="Pop">
+								    Pop
+								  </label>
+								</div>
+							</div>
+						
+
+							<div class="col-md-6">
+								<div class="checkbox">
+				  				<label>
+								    <input type="checkbox" value="Indie">
+								    Indie
+								  </label>
+								</div>
+								<div class="checkbox">
+				  				<label>
+								    <input type="checkbox" value="Blues">
+								    Blues
+								  </label>
+								</div>
+								<div class="checkbox">
+				  				<label>
+								    <input type="checkbox" value="Hip Hop">
+								    Hip Hop
+								  </label>
+								</div>
+							</div>
+
+						</div>
+	      	</div>
+	      	<button type="button" value="filter" class="btn btn-primary btn-lg btn-block">Filter</button>
+	      	<div id="controlButtons">
+					  <a href="#" data-toggle="tooltip" data-placement="left" title="Previous Track"><span class="glyphicon glyphicon-fast-backward"></span></a>
+						<a href="#" data-toggle="tooltip" data-placement="left" title="Play Track"><span class="glyphicon glyphicon-play"></span></a>
+						<a href="#" data-toggle="tooltip" data-placement="left" title="Pause Track"><span class="glyphicon glyphicon-pause"></span></a>
+						<a href="#" data-toggle="tooltip" data-placement="left" title="Next Track"><span class="glyphicon glyphicon-fast-forward"></span></a>
+					</div>
+	      </form>
+			</div>
+			<div id="info" class="col-sm-8 col-sm-offset-1">
+				<!-- <button type="button" id="addMoreSongs" value="addMoreSongs" class="btn btn-primary btn-lg btn-block">Add More Songs</button> -->
+			</div>
 		</div>
-		<div id="info">
-			<button type="button" id="addMoreSongs" value="addMoreSongs">Add More Songs</button>
+	</div>
+	<div id="scrollControls">
+		<div class="btn-group" role="group">
+			<a href="index.html" class="currentPage"><button type="button" class="btn btn-default">View Music</button></a>
+			<a href="addSongs.html"><button type="button" class="btn btn-default">Add Music</button></a>
+			<a href="#"><button type="button" class="btn btn-default">Profile</button></a>
 		</div>
 	</div>
-	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script data-main="javascripts/main"
           src="bower_components/requirejs/require.js"></script>
 </body>

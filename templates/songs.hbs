@@ -1,0 +1,12 @@
+{{#each songs}}
+  <div class="row song" id="{{@key}}">
+    <h3>{{name}}</h3>
+    <div class="row">
+      <p class="col-sm-4">Artist: {{artist}}</p>
+      <p class="col-sm-4">Album: {{album}}</p>
+      <div class="col-sm-4">
+        <button type="button" value="delete" class="btn btn-danger btn-sm">Delete Song</button>
+      </div>
+    </div>
+  </div>
+{{/each}}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+  <link rel ="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+    <title>Brendon Pierson's Music App</title>
+</head>
+<body>
+  <nav id="nav" class="navbar transparent navbar-inverse">
+    <div id="navContainer" class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-music"></span></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">View Music<span class="sr-only"></span></a></li>
+          <li class="active"><a href="#">Add Music</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="container">
+    <div id="main-wrapper" class="row">
+      <div id="controls" class="col-sm-3">
+      <h3>Enter New Song Information</h3>
+        <form id="addNewSong">
+          <div class="form-group">
+            <label for="songName">Song Name:</label>
+            <input type="text" name="songName">
+          </div>
+
+          <div class="form-group">
+            <label for="album">Album</label>
+            <input type="text" name="album">
+          </div>
+
+          <div class="form-group">
+            <label for="artist">Aritst</label>
+            <input type="text" name="artist">
+          </div>
+
+          <div class="form-group">
+            <label for="genre">Genre</label>
+            <input type="text" name="genre">
+          </div>
+
+          <button type="button" value="addSong" class="btn btn-primary btn-lg btn-block">Add Song</button>
+          <!-- <div id="genre" class="form-group">
+            <h4>Genre:</h4>
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="rock">
+                    Rock
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="classical">
+                    Classical
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="pop">
+                    Pop
+                  </label>
+                </div>
+              </div>
+            
+
+              <div class="col-md-6">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="Jazz">
+                    Jazz
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="blues">
+                    Blues
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="hiphop">
+                    Hip Hop
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <button type="button" value="filter" class="btn btn-primary btn-lg btn-block">Filter</button>
+          <div id="controlButtons">
+            <a href="#" data-toggle="tooltip" data-placement="left" title="Previous Track"><span class="glyphicon glyphicon-fast-backward"></span></a>
+            <a href="#" data-toggle="tooltip" data-placement="left" title="Play Track"><span class="glyphicon glyphicon-play"></span></a>
+            <a href="#" data-toggle="tooltip" data-placement="left" title="Pause Track"><span class="glyphicon glyphicon-pause"></span></a>
+            <a href="#" data-toggle="tooltip" data-placement="left" title="Next Track"><span class="glyphicon glyphicon-fast-forward"></span></a>
+          </div> -->
+
+        </form>
+      </div>
+      <div id="info" class="col-sm-8 col-sm-offset-1">
+        <!-- <button type="button" id="addMoreSongs" value="addMoreSongs" class="btn btn-primary btn-lg btn-block">Add More Songs</button> -->
+      </div>
+    </div>
+  </div>
+  <div id="scrollControls">
+    <div class="btn-group" role="group">
+      <a href="index.html" class="currentPage"><button type="button" class="btn btn-default">View Music</button></a>
+      <a href="addSongs.html"><button type="button" class="btn btn-default">Add Music</button></a>
+      <a href="#"><button type="button" class="btn btn-default">Profile</button></a>
+    </div>
+  </div>
+  <script data-main="javascripts/main"
+          src="bower_components/requirejs/require.js"></script>
+</body>
