@@ -118,15 +118,25 @@ li:hover {
 }
 
 // media queries //
- @media(min-width: 768px){
-  body {
-    background-image: url('https://static.pexels.com/photos/1539/vintage-technology-music-old-large.jpg');
+@media(min-width: 768px){
+  html { 
+    background: url('https://static.pexels.com/photos/1539/vintage-technology-music-old-large.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-repeat: no-repeat; 
+  }
+  body {
+    background: url('https://static.pexels.com/photos/1539/vintage-technology-music-old-large.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     padding: 2.5% 5%;
   }
   #info, #controls {
     border: 1px solid #000;
+    min-height: 100%;
   }
   #info {
     text-align: left;
@@ -134,4 +144,41 @@ li:hover {
   button {
     opacity: .7;
   }
- }
+  #scrollControls {
+    background: rgba(0,0,0, .9);
+    padding: 10px;
+    border-radius: 10px;
+    color: #DDD;
+    display: none;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    :hover {
+      background: rgba(255,255,255, .1);
+    }
+    a {
+      color: white;
+      :hover {
+        background: rgba(255,255,255, .1);
+      }
+    }
+    button {
+      background: rgba(0,0,0, .1);
+      color: #FFF;
+      :hover {
+        background: rgba(255,255,255, .1);
+      }
+    }
+  }
+}
+@media(min-width: 1000px){
+  #scrollControls {
+    left: 80px;
+  }
+
+
+
+
+
+
+}
