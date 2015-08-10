@@ -56,8 +56,8 @@ requirejs(
         filter.clearFilters(songsObj);
       });
 
-      //filter events, fire every time input is changed
-      if(dom.nameInput.val().length > 0){
+      //filter events, fire every time input is changed, when on the main page only
+      if($(location).attr('pathname') === "/index.html"){
         dom.albumInput.change(function(){
           filter.filterSongs(songsArr);
         });
@@ -67,8 +67,7 @@ requirejs(
         $('[type="checkbox"]').change(function(){
           filter.filterSongs(songsArr);
         });  
-      }
-      
+      }      
 
     });
 
