@@ -68,13 +68,13 @@ requirejs(
           filter.filterSongs(songsArr);
         });  
       }      
-
     });
 
     //add Songs
     dom.addSongButton.click(editSongs.addSong);
     //delete songs
     dom.songsDiv.on('click', "button[value='delete']", editSongs.deleteSong);
+
 
     // //Fix controls when window is > 767px
     dom.win.resize(styles.resizeCallback);

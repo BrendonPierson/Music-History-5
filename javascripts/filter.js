@@ -57,6 +57,7 @@ define (["jquery", "dom-access", "populateHTML", "lodash"], function($, dom, pop
       populateHTML.putSongsInHTML(songsObj);
       populateHTML.populateArtists(uniqueArtistsObj);
       populateHTML.populateAlbums(uniqueAlbumsObj);
+      $('input:checkbox').removeAttr('checked');
     }
 
 

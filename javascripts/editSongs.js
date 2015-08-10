@@ -16,9 +16,9 @@ define (["jquery", "dom-access"], function($, dom){
         method: "POST",
         data: JSON.stringify(newSong)
       });
-    },
-    deleteSong: function(){
-        $.ajax({
+    },   
+    deleteSong: function() {
+      $.ajax({
         url: "https://nssapp.firebaseio.com/songs/" + $(this).parent().parent().parent().attr('id') + ".json",
         type: 'DELETE'
       });
