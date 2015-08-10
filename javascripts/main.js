@@ -16,8 +16,8 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "lodash", "firebase", "hbs", "bootstrap", "dom-access", "responsiveStyles", "filter", "editSongs"], 
-  function($, _, _firebase, Handlebars, bootstrap, dom, styles, filter, editSongs) {
+  ["jquery", "lodash", "firebase", "hbs", "bootstrap", "dom-access", "responsiveStyles", "filter", "editSongs", "populateHTML"], 
+  function($, _, _firebase, Handlebars, bootstrap, dom, styles, filter, editSongs, populateHTML) {
     
     //firebase reference
     var myFirebaseRef = new Firebase("https://nssapp.firebaseio.com/");
@@ -38,7 +38,6 @@ requirejs(
         albumsArr[albumsArr.length] = songs[song].album;
       }
 
-      // var songsObj = {'songs': songsArr};
       var songsObj = {'songs': songs};
       
       var uniqueArtists = _.chain(artistsArr).uniq().value();
@@ -48,47 +47,42 @@ requirejs(
       uniqueAlbumsObj = {albums: uniqueAlbums};
 
       // Populate HTML
-      populateArtists(uniqueArtistsObj);
-      populateAlbums(uniqueAlbumsObj);
-      putSongsInHTML(songsObj);
+      populateHTML.populateArtists(uniqueArtistsObj);
+      populateHTML.populateAlbums(uniqueAlbumsObj);
+      populateHTML.putSongsInHTML(songsObj);
        
-      //filter 
+      //filter clear
       dom.filterButton.click(function(){
-        putSongsInHTML(filter.filterSongs(songsArr));
+        filter.clearFilters(songsObj);
       });
+
+      //filter events, fire every time input is changed
+      if(dom.nameInput.val().length > 0){
+        dom.albumInput.change(function(){
+          filter.filterSongs(songsArr);
+        });
+        dom.artistInput.change(function(){
+          filter.filterSongs(songsArr);
+        });
+        $('[type="checkbox"]').change(function(){
+          filter.filterSongs(songsArr);
+        });  
+      }
+      
 
     });
-
-    //function for turning json into html through handlebars template
-    function putSongsInHTML(data) {
-      //populate songs div 
-      require(['hbs!../templates/songs'],function(songTemplate){
-        dom.songsDiv.hide().html(songTemplate(data)).slideDown("slow");
-      });
-    } //end of the json to html function
-
-    function populateArtists(data) {
-      require(['hbs!../templates/artist'],function(artistTemplate){
-        $("select[name='artist']:last-child").append(artistTemplate(data));
-      });
-    }
-
-    function populateAlbums(data) {
-      require(['hbs!../templates/album'],function(albumTemplate){
-        $("select[name='album']:last-child").append(albumTemplate(data));
-      });
-    }
 
     //add Songs
     dom.addSongButton.click(editSongs.addSong);
     //delete songs
     dom.songsDiv.on('click', "button[value='delete']", editSongs.deleteSong);
 
-
     // //Fix controls when window is > 767px
     dom.win.resize(styles.resizeCallback);
     dom.win.on('scroll', styles.scrollCallback);
-
     
   } // end of require js function
 ); // end of require js scope
+
+
+
