@@ -129,5 +129,10 @@ li:hover {
 @media (min-width: 1000px) {
   #scrollControls {
     left: 80px; } }
+#sortable {
+  list-style-type: none; }
+
+.ui-state-highlight {
+  height: 150px; }
 
 /*# sourceMappingURL=main.css.map */
