@@ -1,7 +1,6 @@
 define (["jquery", "dom-access", "populateHTML", "lodash"], function($, dom, populateHTML, _){
   return {
     filterSongs: function(songsArr){
-      console.log("filter function fired");
       //variables to collect filter values 
       var album = dom.albumInput.val();
       var artist = dom.artistInput.val();

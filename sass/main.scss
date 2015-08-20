@@ -97,23 +97,42 @@ li:hover {
 .song:hover {
   background: rgba(255,255,255, .1);
   border-radius: 20px;
-  padding: 1%;
+  // padding: 1%;
   text-shadow: 0 2px 2px #000;
 }
 .song {
-  padding: 0 0 2% 0;
+  
 }
 
 #info {
   text-align: center;
   border: 1px solid #DDD;
   border-radius: $borderRadius;
-  padding: 2% 4%;
+  // padding: 2% 4%;
   @include boxShadow(5px, 5px, 20px, 10px, rgba(0,0,0,0.75));
   background: rgba(0,0,0, .9);
   button:hover {
     background: rgba(255,255,255, .1)
   }
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      margin: 0;
+      padding:0 4%;
+      border-radius: 20px;
+    }
+  }
+}
+
+ #sortable { 
+  list-style-type: none; 
+}
+
+.ui-state-highlight {
+  height: 150px;
+  border: 1px solid #FFF;
+  border-radius: 20px;
 }
 
 // media queries //
@@ -176,16 +195,7 @@ li:hover {
   }
 }
 
- #sortable { 
-  list-style-type: none; 
-  // margin: 0; 
-  // padding: 0; 
-  // width: 60%; 
-}
 
-.ui-state-highlight {
-  height: 150px;
-}
 
   // #sortable li { 
   //   margin: 0 5px 5px 5px; 

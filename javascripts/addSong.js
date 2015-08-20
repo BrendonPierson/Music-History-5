@@ -1,7 +1,7 @@
-define(["jquery", "q", "dom-access"], function($, Q, dom){
+define(["jquery", "q", "dom-access", "authentication"], function($, Q, dom, auth){
 
   // module must reutn a function
-  return function () {
+  return function (numOfSongs) {
     
     var deferred = Q.defer(); //allows us to control flow of async apllication, more precedural flow like our brain works
 
@@ -9,7 +9,9 @@ define(["jquery", "q", "dom-access"], function($, Q, dom){
       "name": dom.nameInput.val(),
       "album": dom.albumInput.val(),
       "artist": dom.artistInput.val(),
-      "genre": dom.genreInput.val()
+      "genre": dom.genreInput.val(),
+      "uid": auth.getUid(),
+      "position": numOfSongs + 1
     };
     dom.nameInput.val('');
     dom.albumInput.val('');

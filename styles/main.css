@@ -62,23 +62,33 @@ li:hover {
 .song:hover {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  padding: 1%;
   text-shadow: 0 2px 2px #000; }
-
-.song {
-  padding: 0 0 2% 0; }
 
 #info {
   text-align: center;
   border: 1px solid #DDD;
   border-radius: 10px;
-  padding: 2% 4%;
   -webkit-box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.75);
   box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.75);
   background: rgba(0, 0, 0, 0.9); }
   #info button:hover {
     background: rgba(255, 255, 255, 0.1); }
+  #info ul {
+    margin: 0;
+    padding: 0; }
+    #info ul li {
+      margin: 0;
+      padding: 0 4%;
+      border-radius: 20px; }
+
+#sortable {
+  list-style-type: none; }
+
+.ui-state-highlight {
+  height: 150px;
+  border: 1px solid #FFF;
+  border-radius: 20px; }
 
 @media (min-width: 768px) {
   html {
@@ -129,10 +139,5 @@ li:hover {
 @media (min-width: 1000px) {
   #scrollControls {
     left: 80px; } }
-#sortable {
-  list-style-type: none; }
-
-.ui-state-highlight {
-  height: 150px; }
 
 /*# sourceMappingURL=main.css.map */
