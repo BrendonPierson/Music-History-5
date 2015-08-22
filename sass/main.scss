@@ -106,7 +106,6 @@ li:hover {
 
 #info {
   text-align: center;
-  border: 1px solid #DDD;
   border-radius: $borderRadius;
   // padding: 2% 4%;
   @include boxShadow(5px, 5px, 20px, 10px, rgba(0,0,0,0.75));

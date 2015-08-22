@@ -1,35 +1,11 @@
 requirejs(
   ["jquery", "lodash", "firebase", "hbs", "bootstrap",
    "dom-access", "responsiveStyles", "filter", "editSongs", 
-   "populateHTML", "addSong", "deleteSong", "jquery-sortable", "authentication"], 
+   "populateHTML", "addSong", "deleteSong", "jquery-sortable", "authentication", 
+   "sortableLogic", "update-position"], 
   function($, _, _firebase, Handlebars, bootstrap, dom, 
             styles, filter, editSongs, populateHTML,
-            addSong, deleteSong, jquerySortable, auth) {
-
-    /////// user authentication
-    //detect if user is already logged in
-    var ref = new Firebase("https://nssapp.firebaseio.com");
-    var authData = ref.getAuth();
-    console.log("authData: ", authData);
-    //if no login, authenticate with Github OAuth
-    if(authData === null) {
-      ref.authWithOAuthPopup("github", function(error, authData) { //1.firebase sends request for request token to github with client id and secret id
-        if (error) {
-          console.log("Login Failed!", error);
-        } else {
-          console.log("Authenticated successfully with payload:", authData);
-          auth.setUid(authData.uid);
-          // require(["core_list"], function() {});
-        }
-      });
-    } else {
-      auth.setUid(authData.uid);
-      // require(["core_list"], function() {});
-    }
-
-////////////////////////////
-
-
+            addSong, deleteSong, jquerySortable, auth, sortableLogic, position) {
 
     //firebase reference
     var myFirebaseRef = new Firebase("https://nssapp.firebaseio.com/");
@@ -47,17 +23,29 @@ requirejs(
       for (var song in songs) {
         songs[song].key = song;
         songsArr[songsArr.length] = songs[song];
+        //iterate over songsArr and make each position string an int for sorting
+        songsArr[songsArr.length - 1].position = parseInt(songsArr[songsArr.length - 1].position);
         artistsArr[artistsArr.length] = songs[song].artist;
         albumsArr[albumsArr.length] = songs[song].album;
       }
 
-      songsArr = _.sortBy(songsArr, "position");
-      console.log("songsArr", songsArr);
+      // songsArr = _.sortBy(songsArr, "position");
+
+      // songsArr = position.dbOrder(songsArr);
+
+      var dbOrder = position.dbOrder(songsArr);
+      dbOrder
+      .then(function(data){
+
+      console.log(" sorted songsArr", data);
+      var songsObj = {'songs': data};
+      populateHTML.putSongsInHTML(songsObj);
+      }).done();
+
       
       var highestSongIndex = songsArr[songsArr.length - 1];
 
-
-      var songsObj = {'songs': songsArr};
+      // var songsObj = {'songs': songsArr};
       
       var uniqueArtists = _.chain(artistsArr).uniq().value();
       var uniqueAlbums = _.chain(albumsArr).uniq().value();
@@ -68,16 +56,19 @@ requirejs(
       // Populate HTML
       populateHTML.populateArtists(uniqueArtistsObj);
       populateHTML.populateAlbums(uniqueAlbumsObj);
-      populateHTML.putSongsInHTML(songsObj);
+      // populateHTML.putSongsInHTML(songsObj);
       // populateHTML.putSongsInHTML(songsArr);
 
+       // Initialize sortable functionality
+      sortableLogic(songsArr);
 
       //filter clear
       dom.filterButton.click(function(){
         filter.clearFilters(songsObj);
       });
 
-      //filter events, fire every time input is changed, when on the main page only
+      // filter events, fire every time input is changed, 
+      // when on the main page only
       if($(location).attr('pathname') === "/index.html"){
         dom.albumInput.change(function(){
           filter.filterSongs(songsArr);
@@ -102,7 +93,7 @@ requirejs(
           })
           .done();
         });      
-    });
+    }); // end firebase function
 
     //add Songs
     // dom.addSongButton.click(editSongs.addSong);
@@ -140,26 +131,8 @@ requirejs(
     dom.win.resize(styles.resizeCallback);
     dom.win.on('scroll', styles.scrollCallback);
 
-////// Sortable test //////////////////
+ 
 
-  $("#info").on('mouseover', "#sortable", function(){  
-    $("#sortable").sortable({
-      placeholder: "ui-state-highlight",
-      // opacity: 1,
-      revert: true,
-      axis: "y",
-    });
-    $( "#sortable" ).disableSelection();
-  });
-$("#info").on( "sortchange", "#sortable", function( event, ui ) {
-  var sortedIDs = $("#sortable").sortable("toArray");
-  console.log(sortedIDs);
-  console.log(event);
-  console.log(ui);
-});
-
-
-////////////////////////////////////
 
 
 
