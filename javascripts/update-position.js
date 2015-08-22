@@ -7,13 +7,13 @@ define(function(require){
 
   return {
     updateOrder: function(newOrder){
-    ref.update({newOrder});
+    ref.set(newOrder);
     },
     dbOrder: function(songsArr) {
       var deferred = Q.defer();
 
       var newOrder = [];
-      ref.child("newOrder").on("value", function(snapshot) {
+      ref.on("value", function(snapshot) {
         var sortedIDs = snapshot.val();
         console.log("order of ids", sortedIDs);
         for (var i = 0; i < songsArr.length; i++) {

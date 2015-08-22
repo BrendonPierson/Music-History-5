@@ -30,6 +30,12 @@
 	        <li><a href="addSongs.html">Add Music</a></li>
 	        <li><a href="#">Profile</a></li>
 	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+					<li><a href="#" data-toggle="tooltip" data-placement="left" title="Previous Track"><span class="glyphicon glyphicon-fast-backward"></span></a></li>
+					<li><a href="#" data-toggle="tooltip" data-placement="left" title="Play Track"><span class="glyphicon glyphicon-play"></span></a></li>
+					<li><a href="#" data-toggle="tooltip" data-placement="left" title="Pause Track"><span class="glyphicon glyphicon-pause"></span></a></li>
+					<li><a href="#" data-toggle="tooltip" data-placement="left" title="Next Track"><span class="glyphicon glyphicon-fast-forward"></span></a></li>
+        </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
@@ -106,12 +112,6 @@
 						</div>
 	      	</div>
 	      	<button type="button" value="filter" class="btn btn-primary btn-lg btn-block">Clear Filters</button>
-	      	<div id="controlButtons">
-					  <a href="#" data-toggle="tooltip" data-placement="left" title="Previous Track"><span class="glyphicon glyphicon-fast-backward"></span></a>
-						<a href="#" data-toggle="tooltip" data-placement="left" title="Play Track"><span class="glyphicon glyphicon-play"></span></a>
-						<a href="#" data-toggle="tooltip" data-placement="left" title="Pause Track"><span class="glyphicon glyphicon-pause"></span></a>
-						<a href="#" data-toggle="tooltip" data-placement="left" title="Next Track"><span class="glyphicon glyphicon-fast-forward"></span></a>
-					</div>
 	      </form>
 			</div>
 			<div id="info" class="col-sm-8 col-sm-offset-1">
@@ -119,13 +119,17 @@
 			</div>
 		</div>
 	</div>
-	<div id="scrollControls">
-		<div class="btn-group" role="group">
-			<a href="index.html" class="currentPage"><button type="button" class="btn btn-default">View Music</button></a>
-			<a href="addSongs.html"><button type="button" class="btn btn-default">Add Music</button></a>
-			<a href="#"><button type="button" class="btn btn-default">Profile</button></a>
-		</div>
-	</div>
+  <div id="scrollControls">
+    <div class="btn-group" role="group">
+      <a href="index.html" class="currentPage"><button type="button" class="btn btn-default">View Music</button></a>
+      <a href="addSongs.html"><button type="button" class="btn btn-default">Add Music</button></a>
+      <a href="#"><button type="button" class="btn btn-default">Profile</button></a>
+    </div>
+  </div>
+	<audio>
+	  <source src="music/Trapeze%20Mp3.mp3" type="audio/mpeg" preload="auto">
+		Your browser does not support the audio element.
+	</audio>
 	<script data-main="javascripts/main"
           src="bower_components/requirejs/require.js"></script>
 </body>

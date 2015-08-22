@@ -2,11 +2,13 @@ requirejs(
   ["jquery", "lodash", "firebase", "hbs", "bootstrap",
    "dom-access", "responsiveStyles", "filter", "editSongs", 
    "populateHTML", "addSong", "deleteSong", "jquery-sortable", "authentication", 
-   "sortableLogic", "update-position"], 
+   "sortableLogic", "update-position", "audioPlayback"], 
   function($, _, _firebase, Handlebars, bootstrap, dom, 
             styles, filter, editSongs, populateHTML,
-            addSong, deleteSong, jquerySortable, auth, sortableLogic, position) {
+            addSong, deleteSong, jquerySortable, auth, sortableLogic, 
+            position, playback) {
 
+    playback();
     //firebase reference
     var myFirebaseRef = new Firebase("https://nssapp.firebaseio.com/");
 
@@ -133,7 +135,8 @@ requirejs(
 
  
 
-
+    
+    
 
 
 

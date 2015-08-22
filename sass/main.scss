@@ -44,6 +44,12 @@ li:hover {
   background: rgba(255,255,255, .1);
 }
 
+.navbar-right {
+  span {
+    color: #337ab7;
+  }
+}
+
 
 
 // main wrapper row
@@ -80,11 +86,6 @@ li:hover {
   }
   
   
-}
-#controlButtons {
-  text-align: center;
-  font-size: 2em;
-  margin: 10% 0 0 0;
 }
 
 
