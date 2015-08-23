@@ -20,6 +20,7 @@ requirejs(
       var songsArr = [];
       var artistsArr = [];
       var albumsArr = [];
+      var songsObj;
 
       //create arrays of data
       for (var song in songs) {
@@ -40,7 +41,7 @@ requirejs(
       .then(function(data){
 
       console.log(" sorted songsArr", data);
-      var songsObj = {'songs': data};
+      songsObj = {'songs': data};
       populateHTML.putSongsInHTML(songsObj);
       }).done();
 
@@ -66,12 +67,13 @@ requirejs(
 
       //filter clear
       dom.filterButton.click(function(){
+        console.log("filter button clicked");
         filter.clearFilters(songsObj);
       });
 
       // filter events, fire every time input is changed, 
       // when on the main page only
-      if($(location).attr('pathname') === "/index.html"){
+      if($(location).attr('pathname') === "/index.html" || $(location).attr('pathname') === "/"){
         dom.albumInput.change(function(){
           filter.filterSongs(songsArr);
         });

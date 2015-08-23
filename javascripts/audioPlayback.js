@@ -4,6 +4,8 @@ define(function(require){
   return function(){
     $("[title='Play Track']").click(function() {
       console.log("play clicked");
+      console.log("audio source", $("#sortable:first-child").attr('value'));
+      audio.src = $("#sortable li:first-child").attr('value');
       audio.play();
     });
 
