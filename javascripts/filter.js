@@ -1,4 +1,7 @@
 define (["jquery", "dom-access", "populateHTML", "lodash"], function($, dom, populateHTML, _){
+  
+  
+
   return {
     filterSongs: function(songsArr){
       //variables to collect filter values 

@@ -5,6 +5,9 @@ define(function(require){
         ref = new Firebase("https://nssapp.firebaseio.com/positions/" + user),
         Q = require("q");
 
+    var test = require("es6!testMod");
+    test();
+
   return {
     updateOrder: function(newOrder){
     ref.set(newOrder);

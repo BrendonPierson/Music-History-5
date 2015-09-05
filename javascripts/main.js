@@ -7,7 +7,9 @@ requirejs.config({
     'hbs': '../bower_components/require-handlebars-plugin/hbs',
     'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min',
     'q': '../bower_components/q/q',
-    'jquery-sortable': '../bower_components/jquery-ui/jquery-ui'
+    'jquery-sortable': '../bower_components/jquery-ui/jquery-ui',
+    'es6': '../bower_components/requirejs-babel/es6',
+    'babel': '../bower_components/requirejs-babel/babel-5.8.22.min'
   },
   shim: {
     'bootstrap': ['jquery'], //makes sure jquery is loaded before bootstrap
@@ -45,5 +47,11 @@ requirejs(
   } // end of require js function
 ); // end of require js scope
 
+// ecma6 syntax export instead of return from module
+// import * as firebase from "firebase";
+// import * as _ from "lodash";
 
+// export default function(){
+//   return {...}
+// }
 

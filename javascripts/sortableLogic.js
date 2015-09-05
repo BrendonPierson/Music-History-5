@@ -18,14 +18,13 @@ define(function(require){
       var sortedIDs = $("#sortable").sortable("toArray");
       position.updateOrder(sortedIDs);
       var newOrder = [];
-      console.log("order of ids", sortedIDs);
+      // console.log("order of ids", sortedIDs);
       for (var i = 0; i < songsArr.length; i++) {
         var index = _.findIndex(songsArr, 'key', sortedIDs[i]);
 
-        console.log("index", index);
         newOrder[i] = songsArr[index]; 
       }
-      console.log("newOrder", newOrder);
+      // console.log("newOrder", newOrder);
 
     });
   };

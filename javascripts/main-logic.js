@@ -1,7 +1,7 @@
 requirejs(
   ["jquery", "lodash", "firebase", "hbs", "bootstrap",
    "dom-access", "responsiveStyles", "filter", "editSongs", 
-   "populateHTML", "addSong", "deleteSong", "jquery-sortable", "authentication", 
+   "populateHTML", "es6!addSong", "deleteSong", "jquery-sortable", "authentication", 
    "sortableLogic", "update-position", "audioPlayback"], 
   function($, _, _firebase, Handlebars, bootstrap, dom, 
             styles, filter, editSongs, populateHTML,
@@ -16,11 +16,11 @@ requirejs(
       //every time the database changes this event fires //
 
       //declare variables to hold firebase data
-      var songs = snapshot.val(); 
-      var songsArr = [];
-      var artistsArr = [];
-      var albumsArr = [];
-      var songsObj;
+      var songs = snapshot.val(),
+          songsArr = [],
+          artistsArr = [],
+          albumsArr = [],
+          songsObj;
 
       //create arrays of data
       for (var song in songs) {
